@@ -1,40 +1,22 @@
 from PIL import Image, ImageFilter, ImageChops, ImageOps
 
 class ImageProcessor:
-    def __init__(self, image_path='maxresdefault.jpg'):
-        """
-        Initialize the ImageProcessor with an image file.
-
-        :param image_path: Path to the image file.
-        """
+    def __init__(self, image_path='girl_coffee.jpg'):
         with Image.open(image_path) as img:
             self.img = img.copy()
 
-    def add(self, image_path='russia.jpg', scale=2, offset=0):
-        """
-        Add another image to the current image.
-
-        :param image_path: Path to the image file to add.
-        :param scale: Scale factor for the addition operation.
-        :param offset: Offset for the addition operation.
-        :return: Resulting image after addition.
-        """
+    def add(self, image_path='girl_coffee.jpg', scale=2, offset=0):
         with Image.open(image_path) as img2:
             result_img = ImageChops.add(self.img, img2, scale, offset)
         self.img = result_img.copy()
         return result_img
 
     def reverse(self):
-        """
-        Invert the colors of the image.
-
-        :return: Resulting inverted image.
-        """
         result_img = ImageOps.invert(self.img)
         self.img = result_img.copy()
         return result_img
 
-    def gaussian_blur(self, intensity=10):
+    def gblur(self, intensity=10):
         """
         Apply Gaussian blur to the image.
 
@@ -90,7 +72,7 @@ class ImageProcessor:
         self.img = result_img.copy()
         return result_img
 
-    def set_image(self, image_path='russia.jpg'):
+    def set_image(self, image_path='girl_coffee.jpg'):
         """
         Set the image to a new image file.
 
@@ -115,6 +97,6 @@ class ImageProcessor:
 
 
 # Example Usage:
-processor = ImageProcessor('maxresdefault.jpg')
-processor.add('russia.jpg')
+processor = ImageProcessor('girl_coffee.jpg')
+processor.add('girl_coffee.jpg')
 processor.show()
