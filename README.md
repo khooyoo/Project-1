@@ -11,7 +11,7 @@ The `ImageProcessor` class is a Python class designed to provide a set of image 
 ```python
 from ImageProcessor import ImageProcessor
 
-# Initialize with a default image file (maxresdefault.jpg)
+# Initialize with a default image file (girl_coffee.jpg)
 processor = ImageProcessor()
 
 # Initialize with a custom image file
