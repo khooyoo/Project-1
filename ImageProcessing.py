@@ -16,12 +16,12 @@ class ImageProcessor:
         self.img = result_img.copy()
         return result_img
 
-    def gblur(self, intensity=10):
+    def gaussian_blur(self, intensity=8):
         """
         Apply Gaussian blur to the image.
 
         :param intensity: Intensity of the blur.
-        :return: Resulting image after Gaussian blur.
+        :return: Resulting image after blur.
         """
         result_img = self.img.filter(ImageFilter.GaussianBlur(intensity))
         self.img = result_img.copy()
